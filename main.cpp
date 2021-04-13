@@ -8,7 +8,7 @@ using namespace std;
 
 int probabilityOfAddingEdgeToGraph(double p)
 {
-	double r = ((double)rand() / (RAND_MAX)); // Get random number
+	double r = ((double)rand() / (RAND_MAX)); // Get random number between 0-1
 	return p > r;
 }
 
@@ -79,7 +79,7 @@ int diameter(vector<vector<int>> edge)
 	int diam = 0, temp;
 	if (!connectivity(edge)) return -1;
 	for (int i = 0; i < n; i++) {
-		dist = BFS(0, edge);
+		dist = BFS(i, edge);
 		temp = int(*max_element(dist.begin(), dist.end()));
 		diam = max(temp, diam);
 	}
@@ -91,7 +91,7 @@ void checkConnectivity(double arr[], int n, double threshold1and3)
     fstream fout;
     fout.open("reportRandomGraphAttributes.csv", ios::out | ios::app);
 	vector<vector<int>> edge;
-	int success, fails;
+	double success, fails;
 	for (int i = 0; i < 10; i++) {
     	success = 0, fails = 0;
 		for (int j = 0; j < 500; j++) {
@@ -111,7 +111,7 @@ void checkConnectivity(double arr[], int n, double threshold1and3)
 				}
 			}
 		}
-        fout << "Work=" << success << ", fails=" << fails << "\t";
+        fout << "Success=" << success / 500 << ", fails=" << fails / 500 << "\t";
 	}
 	fout << "\n";
     fout.close();
@@ -122,27 +122,27 @@ void checkIsolated_Is(double arr[], int n, double threshold1and3)
 	fstream fout;
     fout.open("reportRandomGraphAttributes.csv", ios::out | ios::app);
 	vector<vector<int>> edge;
-	int work, fails;
+	double success, fails;
 	for (int i = 0; i < 10; i++) {
-		work = 0, fails = 0;
+		success = 0, fails = 0;
 		for (int j = 0; j < 500; j++) {
 			edge = graph_random_build(n, arr[i]);
 			if (arr[i] < threshold1and3) {
 				if (!Isolated_Is(edge)) {
 					fails++;
 				} else {
-					work++;
+					success++;
 				}
 			}
 			else {
 				if (Isolated_Is(edge)) {
 					fails++;
 				} else {
-					work++;
+					success++;
 				}
 			}
 		}
-        fout << "Work=" << work << ", fails=" << fails << "\t";
+        fout << "Success=" << success / 500 << ", fails=" << fails / 500 << "\t";
 	}
 	fout << "\n";
     fout.close();
@@ -153,27 +153,27 @@ void checkDiameter(double arr[], int n, double threshold2)
 	fstream fout;
     fout.open("reportRandomGraphAttributes.csv", ios::out | ios::app);
 	vector<vector<int>> edge;
-	int work, fails;
+	double success, fails;
 	for (int i = 0; i < 10; i++) {
-		work = 0, fails = 0;
+		success = 0, fails = 0;
 		for (int j = 0; j < 500; j++) {
 			edge = graph_random_build(n, arr[i]);
 			if (arr[i] > threshold2) {
 				if (diameter(edge) != 2) {
 					fails++;
 				} else {
-					work++;
+					success++;
 				}
 			}
 			else {
 				if (diameter(edge) <= 2) {
 					fails++;
 				} else {
-					work++;
+					success++;
 				}
 			}
 		}
-        fout << "Work=" << work << ", fails=" << fails << "\t";
+        fout << "Success=" << success / 500 << ", fails=" << fails / 500 << "\t";
 	}
 	fout.close();
 }
@@ -196,7 +196,7 @@ int main()
     for (int i = 0; i < 10; i++) {
         fout << arr[i] << "\t\t\t\t";
     }
-    fout << "\n\n\n";
+    fout << "\n";
     fout.close();
 
 	/* Functions for random graph attributes testing on connectivity and isolated */
