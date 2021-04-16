@@ -1,4 +1,5 @@
 #include <iostream>
+#include <time.h>
 #include <fstream>
 #include <vector>
 #include <queue>
@@ -111,7 +112,7 @@ void checkConnectivity(double arr[], int n, double threshold1and3)
 				}
 			}
 		}
-        fout << "Success=" << success / 500 << ", fails=" << fails / 500 << "\t";
+        fout << "Success=" << success << ", fails=" << fails << "\t";
 	}
 	fout << "\n";
     fout.close();
@@ -142,7 +143,7 @@ void checkIsolated_Is(double arr[], int n, double threshold1and3)
 				}
 			}
 		}
-        fout << "Success=" << success / 500 << ", fails=" << fails / 500 << "\t";
+        fout << "Success=" << success << ", fails=" << fails << "\t";
 	}
 	fout << "\n";
     fout.close();
@@ -173,9 +174,9 @@ void checkDiameter(double arr[], int n, double threshold2)
 				}
 			}
 		}
-        fout << "Success=" << success / 500 << ", fails=" << fails / 500 << "\t";
+        fout << "Success=" << success << ", fails=" << fails << "\t";
 	}
-	fout.close();
+    fout.close();
 }
 
 int main()
@@ -183,7 +184,7 @@ int main()
     /* Variable Settings */
 	int n = 1000;
 	double arr[10] = { 0.06, 0.062, 0.064, 0.066, 0.068, 0.072, 0.074, 0.076, 0.078, 0.08 };
-	double arr2[10] = { 0.09, 0.095, 0.1, 0.105, 0.11, 0.115, 0.12, 0.125, 0.13, 0.35 };
+	double arr2[10] = { 0.09, 0.095, 0.1, 0.105, 0.11, 0.115, 0.12, 0.125, 0.13, 0.135 };
 	double threshold1and3 = log(n) / n;
 	double threshold2 = sqrt(2 * log(n) / n);
 
@@ -207,7 +208,7 @@ int main()
 	fout;
     fout.open("reportRandomGraphAttributes.csv", ios::out | ios::app);
     for (int i = 0; i < 10; i++) {
-        fout << arr2[i] << "\t\t\t\t";
+        fout << arr2[i] << "\t\t\t\t\t";
     }
     fout << "\n";
     fout.close();
