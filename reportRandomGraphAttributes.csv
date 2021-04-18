@@ -1,5 +1,5 @@
-0.06				    0.062				    0.064				    0.066				    0.068				    0.072				    0.074				    0.076				    0.078				    0.08			    	
-Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	
-Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	
-0.09					0.095					0.1					    0.105					0.11					0.115					0.12					0.125					0.13					0.135					
-Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=455, fails=45	Success=282, fails=218	Success=388, fails=112	Success=469, fails=31	Success=494, fails=6	Success=493, fails=7	
+0.006				    0.0062				    0.0064				    0.0066				    0.0068				    0.0072				    0.0074				    0.0076				    0.0078				    0.008				
+Success=460, fails=40	Success=438, fails=62	Success=413, fails=87	Success=388, fails=112	Success=344, fails=156	Success=242, fails=258	Success=272, fails=228	Success=299, fails=201	Success=318, fails=182	Success=335, fails=165	
+Success=460, fails=40	Success=436, fails=64	Success=419, fails=81	Success=380, fails=120	Success=340, fails=160	Success=234, fails=266	Success=274, fails=226	Success=304, fails=196	Success=335, fails=165	Success=360, fails=140	
+0.09					0.095					0.1					    0.105					0.11				    0.12					0.125					0.13					0.135					0.14					
+Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=500, fails=0	Success=453, fails=47	Success=391, fails=109	Success=470, fails=30	Success=484, fails=16	Success=496, fails=4	Success=500, fails=0	

@@ -19,7 +19,7 @@ void addEdge(int a, int b, vector<vector<int>> &edge)
 	edge[b].push_back(a);
 }
 
-vector<vector<int>> graph_random_build(int n, double p)
+vector<vector<int>> ‫‪build_random_graph‬‬(int n, double p)
 {
 	int i, j, maxEdges = p * (n * (n - 1) / 2), countEdges = 0;
 	vector<vector<int>> edge(n, vector<int>());
@@ -96,7 +96,7 @@ void checkConnectivity(double arr[], int n, double threshold1and3)
 	for (int i = 0; i < 10; i++) {
     	success = 0, fails = 0;
 		for (int j = 0; j < 500; j++) {
-			edge = graph_random_build(n, arr[i]);
+			edge = ‫‪build_random_graph‬‬(n, arr[i]);
 			if (arr[i] < threshold1and3) {
 				if (connectivity(edge)) {
 					fails++;
@@ -127,7 +127,7 @@ void checkIsolated_Is(double arr[], int n, double threshold1and3)
 	for (int i = 0; i < 10; i++) {
 		success = 0, fails = 0;
 		for (int j = 0; j < 500; j++) {
-			edge = graph_random_build(n, arr[i]);
+			edge = ‫‪build_random_graph‬‬(n, arr[i]);
 			if (arr[i] < threshold1and3) {
 				if (!Isolated_Is(edge)) {
 					fails++;
@@ -158,7 +158,7 @@ void checkDiameter(double arr[], int n, double threshold2)
 	for (int i = 0; i < 10; i++) {
 		success = 0, fails = 0;
 		for (int j = 0; j < 500; j++) {
-			edge = graph_random_build(n, arr[i]);
+			edge = ‫‪build_random_graph‬‬(n, arr[i]);
 			if (arr[i] > threshold2) {
 				if (diameter(edge) != 2) {
 					fails++;
@@ -183,8 +183,8 @@ int main()
 {
     /* Variable Settings */
 	int n = 1000;
-	double arr[10] = { 0.06, 0.062, 0.064, 0.066, 0.068, 0.072, 0.074, 0.076, 0.078, 0.08 };
-	double arr2[10] = { 0.09, 0.095, 0.1, 0.105, 0.11, 0.115, 0.12, 0.125, 0.13, 0.135 };
+	double arr[10] = { 0.006, 0.0062, 0.0064, 0.0066, 0.0068, 0.0072, 0.0074, 0.0076, 0.0078, 0.008 };
+	double arr2[10] = { 0.09, 0.095, 0.1, 0.105, 0.11, 0.12, 0.125, 0.13, 0.135, 0.14 };
 	double threshold1and3 = log(n) / n;
 	double threshold2 = sqrt(2 * log(n) / n);
 
